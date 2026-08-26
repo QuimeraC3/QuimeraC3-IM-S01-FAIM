@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUIMERA EN LA INTERPRETACIÓN MÉDICA. &bull; Serie 01</title>
+    <meta name="description" content="Quimera — Serie 01: Filosofía Aplicada a la Interpretación Médica. Compendio filosófico, análisis conceptuales y metodología de investigación.">
+    <title>QUIMERA EN LA INTERPRETACIÓN MÉDICA &bull; Serie 01</title>
     <style>
         :root {
             --bg-color: #f8fafc;
@@ -12,9 +13,14 @@
             --text-muted: #475569;
             --primary: #0f766e;
             --primary-hover: #115e59;
+            --accent: #d97706;
             --border-color: #e2e8f0;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         * {
@@ -30,15 +36,79 @@
             line-height: 1.6;
         }
 
+        /* NAVEGACIÓN SUPERIOR */
+        .top-bar {
+            background-color: #0b1329;
+            padding: 0.85rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .top-bar-container {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            color: #ffffff;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: color 0.2s ease;
+        }
+
+        .brand-logo:hover {
+            color: #38bdf8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.25rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* ENCABEZADO CON IMAGEN DE FONDO */
         header {
-            /* Capas de transparencia para mantener clara la imagen */
-            background: linear-gradient(rgba(15, 23, 42, 0.40), rgba(15, 23, 42, 0.50)), url('banner.jpeg');
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url('banner.jpeg');
             background-size: cover;
             background-position: center;
             color: #ffffff;
-            padding: 5rem 2rem 4rem 2rem;
-            text-align: center;
+            padding: 5rem 3rem;
+            text-align: right;
             border-bottom: 4px solid var(--primary);
+        }
+
+        .header-tag {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.35rem 1.2rem;
+            border-radius: 9999px;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
         }
 
         header h1 {
@@ -47,36 +117,41 @@
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 0.5rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+            color: #ffffff;
         }
 
-        header h1:last-of-type {
+        header h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.6rem;
+            font-weight: 400;
             margin-bottom: 1rem;
+            color: #e2e8f0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
         }
 
-        /* -------------------------------------------------- */
-        /* SUBTÍTULO CON NEGRITAS Y COLOR BLANCO            */
-        /* -------------------------------------------------- */
         header p {
             font-size: 1.15rem;
             color: #ffffff;
-            font-weight: 600;
-            max-width: 750px;
-            margin: 0 auto;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            font-weight: 500;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
         }
 
+        /* CONTENEDOR PRINCIPAL */
         .container {
-            max-width: 1100px;
+            max-width: 1150px;
             margin: 0 auto;
-            padding: 3rem 1.5rem;
+            padding: 3.5rem 1.5rem;
         }
 
         .section-title {
             font-family: Georgia, "Times New Roman", serif;
-            font-size: 1.75rem;
+            font-size: 1.85rem;
             color: var(--text-main);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--border-color);
         }
@@ -94,7 +169,7 @@
             border-radius: 12px;
             padding: 1.75rem;
             box-shadow: var(--shadow);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -103,6 +178,7 @@
         .card:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
 
         .badge {
@@ -179,30 +255,68 @@
 
         .about-section p {
             color: var(--text-muted);
-            margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header {
+                padding: 3.5rem 1.5rem;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header h2 {
+                font-size: 1.3rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .top-bar-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* PIE DE PÁGINA (TEXTO BLANCO) */
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             background-color: #0f172a;
             color: #ffffff;
             font-size: 0.875rem;
-            margin-top: 3rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
 
+    <!-- Navegación Superior -->
+    <nav class="top-bar">
+        <div class="top-bar-container">
+            <a href="https://quimerac3.github.io/" class="brand-logo">QUIMERA - Inicio General</a>
+            <ul class="nav-links">
+                <li><a href="https://quimerac3.github.io/QuimeraC3-IM-S/">Catálogo de Series pedagógicas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Encabezado Principal con Imagen de Fondo -->
     <header>
-        <h1>QUIMERA EN LA INTERPRETACIÓN MÉDICA.</h1>
-        <h1>Serie 01: Filosofía Aplicada a la Interpretación Médica.</h1>
+        <span class="header-tag">&bull; SERIE 01 &bull;</span>
+        <h1>QUIMERA EN LA INTERPRETACIÓN MÉDICA</h1>
+        <h2>Serie 01: Filosofía Aplicada a la Interpretación Médica</h2>
         <p>Compendio filosófico de publicaciones, análisis conceptuales y metodología de la investigación en la interpretación médica.</p>
     </header>
 
     <main class="container">
         
-        <h2 class="section-title">Catálogo de Volúmenes.</h2>
+        <h2 class="section-title">Catálogo de Volúmenes</h2>
 
         <div class="grid">
             
@@ -210,7 +324,7 @@
             <article class="card">
                 <div>
                     <span class="badge badge-active">Disponible</span>
-                    <h3 class="card-title">Volumen XI: Bioética.</h3>
+                    <h3 class="card-title">Volumen XI: Bioética</h3>
                     <p class="card-description">
                         Edición dedicada al análisis metodológico, bibliográfico y documental en bioética e interpretación médica.
                     </p>
@@ -224,7 +338,7 @@
             <article class="card">
                 <div>
                     <span class="badge badge-upcoming">En preparación</span>
-                    <h3 class="card-title">Volumen XII.</h3>
+                    <h3 class="card-title">Volumen XII</h3>
                     <p class="card-description">
                         Próxima publicación de la serie. Próximamente disponible en esta misma plataforma.
                     </p>
@@ -235,7 +349,7 @@
         </div>
 
         <section class="about-section">
-            <h2>Acerca de la Serie:</h2>
+            <h2>Acerca de la Serie</h2>
             <p>
                 La <strong>Serie: Filosofía Aplicada a la Interpretación Médica</strong> agrupa trabajos analíticos, normativos y epistemológicos orientados a la praxis de la interpretación médica moderna. Cada volumen cuenta con estructura independiente de verificación, control de integridad de archivos y referencias documentales.
             </p>
@@ -243,8 +357,10 @@
 
     </main>
 
+    <!-- Pie de Página Visible en Letra Blanca -->
     <footer>
-        <p>&copy; Serie Filosofía Aplicada a la Interpretación Médica &bull; &copy; 2026 Dr.C. Cesar Cerezo Camacho. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Instituto Quimera &bull; Centro de Investigación, Docencia, Servicio y Difusión.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #ffffff;">Dr.C. Cesar Cerezo Camacho. Todos los derechos reservados.</p>
     </footer>
 
 </body>
